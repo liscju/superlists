@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from lists.models import Item
@@ -7,8 +7,12 @@ from lists.models import Item
 
 def home_page(request):
     if request.method == 'POST':
-        new_item_text = request.POST['item_text']
         Item.objects.create(text=request.POST['item_text'])
+        return redirect('/')
+
+    first_item = Item.objects.first()
+    if first_item is not None:
+        new_item_text = first_item.text
     else:
         new_item_text = ''
 
