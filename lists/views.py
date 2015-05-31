@@ -10,12 +10,6 @@ def home_page(request):
         Item.objects.create(text=request.POST['item_text'])
         return redirect('/')
 
-    first_item = Item.objects.first()
-    if first_item is not None:
-        new_item_text = first_item.text
-    else:
-        new_item_text = ''
+    items = Item.objects.all()
 
-    return render(request,'home.html', {
-        'new_item_text': new_item_text
-    })
+    return render(request,'home.html', { 'items' : items} )

@@ -10,6 +10,10 @@ Functional Test:
 
 C:\Python34\python.exe functional_test.py
 
-Aktualizacja bazy:
+Aktualizacja migracji dla modeli:
 
 C:\Python34\python.exe manage.py makemigrations
+
+Aktualizacja tabeli w bazie:
+
+C:\Python34\python.exe manage.py migrate
