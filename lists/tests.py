@@ -3,7 +3,7 @@ from django.template.loader import render_to_string
 
 from django.test import TestCase
 from django.core.urlresolvers import resolve
-from lists.views import home_page
+from lists.views import home_page, view_list
 from lists.models import Item
 
 
@@ -47,7 +47,7 @@ class HomePageTest(TestCase):
         response = home_page(request)
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response['location'],'/')
+        self.assertEqual(response['location'],'/lists/the-only-list-in-the-world')
 
     def test_home_page_can_save_a_POST_request(self):
         request = HttpRequest()
@@ -65,16 +65,23 @@ class HomePageTest(TestCase):
         home_page(request)
         self.assertEqual(Item.objects.count(),0)
 
-    def test_home_page_displays_all_list_items(self):
+
+class ListViewTest(TestCase):
+
+    def test_uses_list_template(self):
+        response = self.client.get('/lists/the-only-list-in-the-world/')
+        self.assertTemplateUsed(response, 'list.html')
+
+    def test_displays_all_items(self):
         Item.objects.create(text="itemey 1")
         Item.objects.create(text="itemey 2")
 
-        request = HttpRequest()
-        response = home_page(request)
+        found = resolve('/lists/the-only-list-in-the-world/')
+        self.assertEqual(found.func, view_list )
+        response = self.client.get('/lists/the-only-list-in-the-world/')
 
         self.assertIn("itemey 1", response.content.decode())
         self.assertIn("itemey 2", response.content.decode())
-
 
 
 
