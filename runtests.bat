@@ -1,1 +1,1 @@
-C:\Python34\python.exe manage.py test -v 2
+C:\Python34\python.exe manage.py test lists -v 2
