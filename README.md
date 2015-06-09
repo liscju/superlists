@@ -25,3 +25,6 @@ C:\Python34\python.exe manage.py makemigrations
 Aktualizacja tabeli w bazie:
 
 C:\Python34\python.exe manage.py migrate
+
+When sth goes wrong,you always can delete all tables
+in db and runmigrations

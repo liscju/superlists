@@ -1,12 +1,12 @@
-from django.test.testcases import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.test import override_settings
 from selenium.webdriver.common.keys import Keys
 
 __author__ = 'lee'
 
 from selenium import webdriver
-import unittest
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -98,6 +98,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Satysfied, she goes back to sleep
 
+    @override_settings(DEBUG=True)
     def test_layout_and_styling(self):
         # Edith goes to the home page
         self.browser.get(self.live_server_url)
