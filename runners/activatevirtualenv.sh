@@ -1,1 +1,1 @@
-source ../../virtualenv/bin/activate
+source ../virtualenv/bin/activate
