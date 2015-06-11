@@ -1,8 +1,18 @@
-Uruchamianie:
+Creating virtual env:
+$ pip3 install virtualenv
+virtualenv --python=python3 ../virtualenv
+
+Activate virtual env (Remember about it):
+( git bash)
+source ../virtualenv/bin/activate
+( windows )
+..\virtualenv\Scripts\activate.bat
+
+Running server:
 
 C:\Python34\python.exe manage.py runserver
 
-Testy:
+Test:
 
 C:\Python34\python.exe manage.py test -v 2
 
@@ -18,11 +28,11 @@ When something goes wrong in test - debug it with:
     def test_debug(self):
         ....
 
-Aktualizacja migracji dla modeli:
+Update migration for models:
 
 C:\Python34\python.exe manage.py makemigrations
 
-Aktualizacja tabeli w bazie:
+Update tables in db:
 
 C:\Python34\python.exe manage.py migrate
 
