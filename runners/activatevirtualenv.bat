@@ -1,1 +1,1 @@
-..\virtualenv\Scripts\activate.bat
+.\..\..\virtualenv\Scripts\activate.bat
