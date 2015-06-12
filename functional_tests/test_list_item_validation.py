@@ -1,11 +1,6 @@
-from unittest import skip
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.test import override_settings
-from selenium.webdriver.common.keys import Keys
-import sys
 from functional_tests.base import FunctionalTest
 __author__ = 'lee'
-from selenium import webdriver
+
 
 class ItemValidationTest(FunctionalTest):
 
