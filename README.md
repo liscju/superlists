@@ -8,6 +8,9 @@ source ../virtualenv/bin/activate
 ( windows )
 ..\virtualenv\Scripts\activate.bat
 
+Updating requirements in virtual env:
+# pip install -r requirements.txt
+
 Running server:
 
 C:\Python34\python.exe manage.py runserver
