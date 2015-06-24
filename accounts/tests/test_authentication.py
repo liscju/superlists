@@ -1,9 +1,11 @@
 from unittest.mock import patch
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from accounts.authentication import PersonaAuthenticationBackend, PERSONA_VERIFY_URL, DOMAIN
 
 __author__ = 'lee'
+
+User = get_user_model()
 
 @patch('accounts.authentication.requests.post')
 class AuthenticateTest(TestCase):

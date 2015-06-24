@@ -1,10 +1,12 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 __author__ = 'lee'
 import requests
 
 PERSONA_VERIFY_URL = 'https://verifier.login.persona.org/verify'
 DOMAIN = 'localhost'
+
+User = get_user_model()
 
 class PersonaAuthenticationBackend(object):
 
